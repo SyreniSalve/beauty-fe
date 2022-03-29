@@ -18,4 +18,12 @@ export class UserService {
   getOwnerContent(): Observable<any> {
     return this.http.get(API_URL + 'owner', { responseType: 'text'});
   }
+
+  getUserContent(): Observable<any> {
+    return this.http.get(API_URL + 'user', { responseType: 'text'});
+  }
+
+  getAdminContent(): Observable<any> {
+    return this.http.get(API_URL + 'admin', { responseType: 'text'});
+  }
 }
