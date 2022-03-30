@@ -1,4 +1,3 @@
-
 export class EventData {
   name!: string;
   value!: any;
