@@ -6,3 +6,12 @@
     <button mat-button>SHARE</button>
   </mat-card-actions>
 </mat-card>
+<br/>
+<mat-card class="owners-list" *ngFor="let user of users">
+  <mat-icon>
+    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png"/>
+  </mat-icon>
+  <mat-card-title>{{ user.username }}</mat-card-title>
+  <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+</mat-card>
+
