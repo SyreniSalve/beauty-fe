@@ -23,6 +23,10 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatIconModule } from "@angular/material/icon";
 import { ReactiveFormsModule } from "@angular/forms";
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, DragAndDropService,
+  ResizeService } from '@syncfusion/ej2-angular-schedule';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     ProfileComponent,
     UserComponent,
     AdminComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +56,10 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
+    ScheduleModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, DayService, WeekService, WorkWeekService, MonthService, AgendaService,
+    DragAndDropService, ResizeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
