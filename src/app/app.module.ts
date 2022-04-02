@@ -25,6 +25,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
+import { NgxPaginationModule } from "ngx-pagination";
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, DragAndDropService,
   ResizeService } from '@syncfusion/ej2-angular-schedule';
 
@@ -56,7 +57,8 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, 
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
-    ScheduleModule
+    ScheduleModule,
+    NgxPaginationModule
   ],
   providers: [authInterceptorProviders, DayService, WeekService, WorkWeekService, MonthService, AgendaService,
     DragAndDropService, ResizeService],

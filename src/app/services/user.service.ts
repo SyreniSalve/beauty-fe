@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import {User} from "./user";
 
 const API_URL = 'http://localhost:8080/api/test/';
+const BASE_URL = 'http://localhost:8080/api/auth/users'
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,9 @@ export class UserService {
 
   getAdminContent(): Observable<any> {
     return this.http.get(API_URL + 'admin', { responseType: 'text'});
+  }
+
+  getAll(params: any): Observable<any> {
+    return this.http.get<any>(BASE_URL, { params });
   }
 }
