@@ -93,8 +93,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   this.userService.delete(id)
     .subscribe({
       next: (res) => {
-        console.log(res);
-        this.router.navigate(['/users']);
+        this.retrieveUsers();
       },
       error: (e) => console.error(e)
     });
