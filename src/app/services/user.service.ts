@@ -30,10 +30,6 @@ export class UserService {
     return this.http.get(API_URL + 'user', { responseType: 'text'});
   }
 
-  getAdminContent(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text'});
-  }
-
   update(id: any, data: any): Observable<any> {
     return this.http.put(AUTH_URL + "/update_user", data);
   }
@@ -42,9 +38,8 @@ export class UserService {
     return this.http.delete(`${AUTH_URL}/${id}`);
   }
 
-  get(username: any): Observable<UserInformation> {
-    // @ts-ignore
-    return this.http.get(`${AUTH_URL}/${username}`);
+  get(username: string): Observable<UserInformation> {
+    return this.http.get<UserInformation>(`${AUTH_URL}/${username}`);
   }
 
   getAll(params: any): Observable<any> {

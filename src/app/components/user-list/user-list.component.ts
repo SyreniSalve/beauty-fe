@@ -35,7 +35,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    if (!this.viewMode) {
+    if (!this.viewMode && this.route.snapshot.params["id"]) {
       this.message = '';
       this.getUser(this.route.snapshot.params["id"]);
     }
