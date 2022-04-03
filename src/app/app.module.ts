@@ -25,9 +25,18 @@ import { MatIconModule } from "@angular/material/icon";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
-import { NgxPaginationModule } from "ngx-pagination";
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, DragAndDropService,
   ResizeService } from '@syncfusion/ej2-angular-schedule';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserInformationDetailsComponent } from './components/user-information-details/user-information-details.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+
+
 
 @NgModule({
   declarations: [
@@ -41,6 +50,8 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, 
     UserComponent,
     AdminComponent,
     ScheduleComponent,
+    UserListComponent,
+    UserInformationDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +69,12 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, 
     ReactiveFormsModule,
     FormsModule,
     ScheduleModule,
-    NgxPaginationModule
+    MatPaginatorModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatRadioModule,
+    MatBottomSheetModule,
+    MatDatepickerModule
   ],
   providers: [authInterceptorProviders, DayService, WeekService, WorkWeekService, MonthService, AgendaService,
     DragAndDropService, ResizeService],

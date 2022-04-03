@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../../services/user.service";
+import {User} from "../../services/user";
 
 @Component({
   selector: 'app-admin',
@@ -9,6 +10,7 @@ import { UserService } from "../../services/user.service";
 export class AdminComponent implements OnInit {
 
   content?: string;
+  users!: User[];
 
   constructor(private userService: UserService) { }
 
@@ -20,6 +22,6 @@ export class AdminComponent implements OnInit {
       error => {
         this.content = JSON.parse(error.error).message;
       }
-    )
+    );
   }
 }

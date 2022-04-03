@@ -18,7 +18,7 @@
     <strong>Date of birth:</strong>
     {{ currentUser.dateOfBirth }}
   </p>
-  <p *ngIf="currentUser.jobTitle !== undefined">
+  <p *ngIf="currentUser.jobTitle !== 'user'">
     <strong>Job:</strong>
     {{ currentUser.jobTitle }}
   </p>
