@@ -1,0 +1,42 @@
+
+<mat-card style="background: #F0F8FF">
+  <mat-card class="mat-elevation-z8">
+    <input matInput
+      type="search"
+      placeholder="Search by title"
+      [(ngModel)]="keyword"
+    >
+    <button mat-button
+            (click)="searchKeyword()"
+    >Search</button>
+
+    <button mat-button
+            (click)="removeAllUsers()">
+      Remove All
+    </button>
+  </mat-card>
+
+  <mat-card class="mat-elevation-z8" *ngFor="let user of users" style="margin: 15px;">
+    <mat-icon>
+      <img [src]="user.imageUrl" [alt]="user.username" width="40" height="40"/>
+    </mat-icon>
+    <mat-card-title style="margin-top: 5px;">{{ user.firstName }} {{user.lastName }}</mat-card-title>
+    <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ user.jobTitle }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ user.city }}</mat-card-subtitle>
+    <button class="mat-elevation-z8"
+            mat-button style="background: red;
+            color: white; margin: 2px;"
+            (click)="deleteUser(user.id)"
+    >Delete User</button>
+    <button class="mat-elevation-z8" mat-button style="background: #FF8C00; color: white">Update User</button>
+  </mat-card>
+  <mat-paginator class="mat-elevation-z8"
+                 style="margin: 5px;"
+                 [length]="count"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizes">
+
+  </mat-paginator>
+
+</mat-card>

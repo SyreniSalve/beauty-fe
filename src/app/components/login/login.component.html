@@ -1,0 +1,53 @@
+<mat-card class="container" style="margin-bottom: 25px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);">
+  <form style="box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);"
+    class="mat-card"
+    *ngIf="!isLoggedIn"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
+    <mat-card-title class="formtitle">Please Login</mat-card-title>
+    <mat-form-field
+      appearance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        placeholder="Username"
+        name="username"
+        [(ngModel)]="form.username"
+        type="text"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel"
+        matInput>
+      <mat-error *ngIf="username.errors && f.submitted">
+        <div *ngIf="username.errors['required']">Invalid username</div>
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        placeholder="password"
+        name="password"
+        [(ngModel)]="form.password"
+        required
+        #password="ngModel"
+        matInput>
+      <mat-error *ngIf="password.errors && f.submitted">
+        <div *ngIf="password.errors['required']">Invalid password</div>
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <button mat-raised-button color="primary" type="submit">Login</button>
+    <div *ngIf="f.submitted && isLoginFailed" style="margin-top: 10px; ">
+      Login failed!<br/>{{errorMessage}}
+    </div>
+  </form>
+  <div *ngIf="isLoggedIn">Your login is successful!</div>
+</mat-card>
+
+
+
+
