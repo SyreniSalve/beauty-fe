@@ -1,0 +1,27 @@
+
+
+.user-card {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.mat-card[_ngcontent-uof-c122] {
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .user-card {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .user-card {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.flex-spacer[_ngcontent-nrs-c36] {
+  flex-grow: 1;
+}
+
