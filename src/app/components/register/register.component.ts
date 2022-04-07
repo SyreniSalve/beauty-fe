@@ -8,6 +8,8 @@ import { AuthService } from "../../services/auth.service";
 })
 export class RegisterComponent implements OnInit {
 
+  defaultImage = 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png';
+
   form: any = {
     username: null,
     firstName: null,
@@ -34,7 +36,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     const {username, firstName, lastName, jobTitle, phone, dateOfBirth, email, password, city, state, imageUrl } = this.form;
-    this.authService.register(username, firstName, lastName, jobTitle, phone, dateOfBirth, email, password, city, state, imageUrl)
+    this.authService.register(username, firstName, lastName, jobTitle ? this.form.jobTitle : "user", phone,
+      dateOfBirth, email, password, city, state, imageUrl ? this.form.imageUrl : this.defaultImage)
       .subscribe(
       data => {
         console.log(data);
