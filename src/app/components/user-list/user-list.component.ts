@@ -1,9 +1,15 @@
 import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
-import {User, UserInformation} from 'src/app/services/user';
+import {ListOfUsersResponse, User} from 'src/app/services/user';
 import { UserService } from "../../services/user.service";
 import { MatPaginator } from "@angular/material/paginator";
 import { ActivatedRoute, Router } from "@angular/router";
+import { FormControl, FormGroup } from "@angular/forms";
 import {tap} from "rxjs";
+import {UpdateService} from "../../services/update.service";
+import {RoleEnum} from "../../models/roleEnum";
+import {TokenStorageService} from "../../services/token-storage.service";
+import { MatDialog } from "@angular/material/dialog";
+import {UsersDialogComponent} from "../users-dialog/users-dialog.component";
 
 @Component({
   selector: 'app-user-list',
@@ -12,34 +18,82 @@ import {tap} from "rxjs";
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
-  @Input() viewMode: boolean = false;
+  users: User[] = [];
+  editUser!: User;
+  currentUser! : User;
 
-  users!: UserInformation[];
-  currentUser!: UserInformation;
   currentIndex: number = -1;
   keyword: string = '';
 
   page: number = 1;
   count: number = 0;
-  pageSize: number = 3;
-  pageSizes: number[] = [3, 6]
+  pageSize: number = 5;
+  pageSizes: number[] = [5, 10, 20]
   userId!: number;
   message = '';
+  updating: boolean = false;
+  isSuccessful: boolean = false;
+  isUpdateFailed: boolean = false;
+  submitted: boolean = false;
 
 
   @ViewChild(MatPaginator)
   paginator?: MatPaginator;
 
+  profileForm!: FormGroup;
+
+
+  form: any = {
+    jobTitle: null,
+    phone: null
+  }
+
+  userRoles!: RoleEnum[];
+
   constructor(private userService: UserService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private updateService: UpdateService,
+              private tokenStorage: TokenStorageService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    if (!this.viewMode && this.route.snapshot.params["id"]) {
-      this.message = '';
-      this.getUser(this.route.snapshot.params["id"]);
-    }
+    this.currentUser = this.route.snapshot.data["user"]
+
     this.retrieveUsers();
+    this.getAllUsers();
+
+    if (this.tokenStorage.getToken()) {
+      this.currentUser = this.tokenStorage.getUser().roles;
+    }
+
+    this.profileForm = new FormGroup({
+      id: new FormControl(this.currentUser ? this.currentUser.id : ''),
+      jobTitle: new FormControl(this.currentUser ? this.currentUser.jobTitle : ''),
+      roles: new FormControl(this.currentUser ? this.currentUser.roles : '')
+    })
+  }
+
+  getAllUsers(): void {
+    this.userService.getAllUsers().subscribe(
+      (response: ListOfUsersResponse) => {
+        console.log(2,response);
+        this.users = response.users;
+      }
+    );
+  }
+
+  openDialog(id: number, user: User): void {
+    user.id = id;
+    this.setActiveUser(user, this.currentIndex);
+    const dialogRef = this.dialog.open(UsersDialogComponent, {
+      data: {id, jobTitle: this.currentUser.jobTitle, roles: this.currentUser.roles},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.currentUser = result;
+    });
   }
 
   getRequestParams(keyword: string, page: number, pageSize: number): any {
@@ -60,13 +114,13 @@ export class UserListComponent implements OnInit, AfterViewInit {
     return params;
   }
 
-  getUser(id: string): void {
+  findUserById(id: number) {
     this.userService.get(id)
-      .subscribe({
-        next: (data) => {
-          this.currentUser = data;
-          console.log(data);
-        },
+      .subscribe( {
+          next: (data) => {
+            this.currentUser = data;
+            console.log(data);
+          },
         error: (e) => console.error(e)
       });
   }
@@ -79,8 +133,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
       .subscribe(
         response => {
           const { users, totalItems } = response;
+          console.log(1,users);
           this.users = users;
-          this.count = totalItems;
+          this.count = totalItems.length;
           console.log(response);
         },
         error => {
@@ -88,6 +143,11 @@ export class UserListComponent implements OnInit, AfterViewInit {
         }
       );
   }
+
+  onUpdate(){
+    this.updating = true;
+  }
+
 
   deleteUser(id: number): void {
   this.userService.delete(id)
@@ -136,4 +196,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
     this.page = 1;
     this.retrieveUsers();
   }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
 }
+
+

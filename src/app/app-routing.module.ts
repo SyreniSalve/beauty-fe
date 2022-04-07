@@ -7,6 +7,7 @@ import {RegisterComponent} from "./components/register/register.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {UserComponent} from "./components/user/user.component";
 import {AdminComponent} from "./components/admin/admin.component";
+import {EmployeesListComponent} from "./components/employees-list/employees-list.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'owner', component: OwnerComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'employees', component: EmployeesListComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

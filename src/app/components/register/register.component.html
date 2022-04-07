@@ -56,12 +56,6 @@
       </mat-error>
     </mat-form-field>
     <br/>
-<!--    <mat-form-field>-->
-<!--      <mat-select placeholder="Select">-->
-<!--        <mat-option value="user">user</mat-option>-->
-<!--        <mat-option value="hairdresser">hairdresser</mat-option>-->
-<!--      </mat-select>-->
-<!--    </mat-form-field>-->
     <mat-form-field appearance="fill">
       <mat-label>Phone Number</mat-label>
       <input
@@ -77,20 +71,8 @@
       </mat-error>
     </mat-form-field>
     <br/>
-
-    <!--    <mat-form-field>-->
-<!--      <mat-label>Phone number</mat-label>-->
-<!--      <example-tel-input-->
-<!--        [(ngModel)]="form.phone"-->
-<!--        formControlName="tel"-->
-<!--        required>-->
-<!--      </example-tel-input>-->
-<!--      <mat-icon matSuffix>phone</mat-icon>-->
-<!--      <mat-hint>Include area code</mat-hint>-->
-<!--    </mat-form-field>-->
-<!--    <br/>-->
     <mat-form-field appearance="fill">
-      <mat-label>MM-dd-yyyy</mat-label>
+      <mat-label>yyyy-dd-MM</mat-label>
       <input
         placeholder="DateOfBirth"
         name="dateOfBirth"
@@ -104,19 +86,6 @@
       </mat-error>
     </mat-form-field>
     <br/>
-<!--    <mat-form-field>-->
-<!--      <mat-label>Choose a date</mat-label>-->
-<!--      <input-->
-<!--        placeholder="DateOfBirth"-->
-<!--        name="dateOfBirth"-->
-<!--        [(ngModel)]="form.dateOfBirth"-->
-<!--        required-->
-<!--        matInput-->
-<!--        [matDatepicker]="picker">-->
-<!--      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
-<!--      <mat-datepicker #picker></mat-datepicker>-->
-<!--    </mat-form-field>-->
-<!--    <br/>-->
     <mat-form-field appearance="fill">
       <mat-label for="email">Email</mat-label>
       <input
@@ -185,37 +154,24 @@
       </mat-error>
     </mat-form-field>
     <br/>
-<!--    <mat-form-field>-->
-<!--      <mat-card class="example-card">-->
-<!--        <mat-card-title-group>-->
-<!--          <mat-card-title>Shiba Inu</mat-card-title>-->
-<!--          <mat-card-subtitle>Small</mat-card-subtitle>-->
-<!--          <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >-->
-<!--        </mat-card-title-group>-->
-<!--        <mat-card-content>-->
-<!--        </mat-card-content>-->
-<!--      </mat-card>-->
-<!--      <br/>-->
-<!--    <mat-form-field>-->
-<!--      <mat-label>Photo</mat-label>-->
-<!--      <input-->
-<!--        placeholder="Username"-->
-<!--        name="username"-->
-<!--        [(ngModel)]="form.username"-->
-<!--        type="text"-->
-<!--        required-->
-<!--        minlength="3"-->
-<!--        maxlength="20"-->
-<!--        #username="ngModel"-->
-<!--        matInput>-->
-<!--      <mat-error *ngIf="username.errors && f.submitted">-->
-<!--        <div *ngIf="username.errors['required']">Username is required</div>-->
-<!--        <div *ngIf="username.errors['minlength']">-->
-<!--          Username must be at most 20 characters-->
-<!--        </div>-->
-<!--      </mat-error>-->
-<!--    </mat-form-field>-->
-<!--    <br/>-->
+    <mat-form-field appearance="fill">
+      <mat-label>Image Url</mat-label>
+<!--      <img [src]="form.imageUrl || defaultImage">-->
+      <input
+        type="text"
+        placeholder="ImageUrl"
+        name="imageUrl"
+        [(ngModel)]="form.imageUrl"
+        required
+        #imageUrl="ngModel"
+        matInput>
+      <mat-error *ngIf="imageUrl.errors && f.submitted">
+        <div *ngIf="imageUrl.errors['required']">
+         Image Url is required.
+        </div>
+      </mat-error>
+    </mat-form-field>
+    <br/>
     <button mat-raised-button color="primary" type="submit">Sign Up</button>
     <mat-error *ngIf="f.submitted && isSignupFailed" style="margin-top: 10px; ">Signup failed!<br/>{{errorMessage}}
     </mat-error>

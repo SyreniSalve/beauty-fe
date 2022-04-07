@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+  <h1 mat-dialog-title>Update Profile Information</h1>
+  <div>
+    <p>Job</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Job</mat-label>
+      <input matInput [(ngModel)]="data.jobTitle">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-content class="content">
+    <p>Roles</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Roles</mat-label>
+      <mat-select [(value)]="data.roles">
+        <mat-option [value]="option1">admin</mat-option>
+        <mat-option [value]="option2">owner</mat-option>
+        <mat-option [value]="option3">user</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="onSubmit(data.id, data)" cdkFocusInitial>Update</button>
+  </div>
+</div>

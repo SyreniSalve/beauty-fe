@@ -1,4 +1,3 @@
-
 <mat-card style="background: #F0F8FF">
   <mat-card class="mat-elevation-z8">
     <input matInput
@@ -11,12 +10,13 @@
     >Search</button>
 
     <button mat-button
-            (click)="removeAllUsers()">
-      Remove All
+            (click)="reloadPage()">
+      All List
     </button>
   </mat-card>
-
-  <mat-card class="mat-elevation-z8" *ngFor="let user of users" style="margin: 15px;">
+  <mat-card class="mat-elevation-z8"
+            *ngFor="let user of users"
+            style="margin: 15px;">
     <mat-icon>
       <img [src]="user.imageUrl" [alt]="user.username" width="40" height="40"/>
     </mat-icon>
@@ -29,14 +29,19 @@
             color: white; margin: 2px;"
             (click)="deleteUser(user.id)"
     >Delete User</button>
-    <button class="mat-elevation-z8" mat-button style="background: #FF8C00; color: white">Update User</button>
+    <button class="mat-elevation-z8"
+            mat-button style="background: #FF8C00; color: white"
+            (click)="openDialog(user.id, user)"
+    >Update User</button>
   </mat-card>
   <mat-paginator class="mat-elevation-z8"
                  style="margin: 5px;"
                  [length]="count"
                  [pageSize]="pageSize"
                  [pageSizeOptions]="pageSizes">
-
   </mat-paginator>
-
 </mat-card>
+
+
+
+
