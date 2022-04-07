@@ -18,6 +18,7 @@ import {UsersDialogComponent} from "../users-dialog/users-dialog.component";
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
+  clearSearch() {this.keyword = ''; this.searchKeyword()}
   users: User[] = [];
   editUser!: User;
   currentUser! : User;
@@ -27,7 +28,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   page: number = 1;
   count: number = 0;
-  pageSize: number = 5;
+  pageSize: number = 6;
   pageSizes: number[] = [5, 10, 20]
   userId!: number;
   message = '';
@@ -135,7 +136,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
           const { users, totalItems } = response;
           console.log(1,users);
           this.users = users;
-          this.count = totalItems.length;
+          this.count = totalItems;
           console.log(response);
         },
         error => {
