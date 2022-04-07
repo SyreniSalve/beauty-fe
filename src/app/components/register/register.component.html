@@ -161,7 +161,7 @@
         type="text"
         placeholder="ImageUrl"
         name="imageUrl"
-        [(ngModel)]="form.imageUrl"
+        [(ngModel)]="form.imageUrl || defaultImage"
         required
         #imageUrl="ngModel"
         matInput>
