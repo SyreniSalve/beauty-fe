@@ -35,6 +35,7 @@ export class ProfileComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.currentUser = result;
       this.reloadPage();
     });
   }

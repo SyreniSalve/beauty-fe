@@ -12,11 +12,9 @@
     <mat-form-field appearance="fill">
       <mat-label>Roles</mat-label>
       <mat-select [(value)]="data.roles">
-        <mat-option [(ngModel)]="data.roles"
-                    *ngFor="let userRole of userRoles"
-                    [value]="userRole">
-          {{userRole.role}}
-        </mat-option>
+        <mat-option [value]="option1">admin</mat-option>
+        <mat-option [value]="option2">owner</mat-option>
+        <mat-option [value]="option3">user</mat-option>
       </mat-select>
     </mat-form-field>
   </div>

@@ -17,25 +17,31 @@ import {RoleEnum} from "../../models/roleEnum";
 })
 export class UsersDialogComponent implements OnInit {
 
-  stringifyData: any;
-  parsedJson: any;
+
   users!: User[];
   currentUser!: User;
   profileForm!: FormGroup;
-  userRoles: Role[] = [
+
+  option1: Role [] = [
     {
-    id: 1,
-    role: RoleEnum.ROLE_ADMIN
-  },
+      id: 1,
+      role: RoleEnum.ROLE_ADMIN
+    },
+  ];
+
+  option2: Role [] = [
     {
       id: 2,
       role: RoleEnum.ROLE_OWNER
     },
+  ];
+
+  option3: Role [] = [
     {
       id: 3,
       role: RoleEnum.ROLE_USER
-    }
-    ]
+    },
+  ];
 
   constructor(
     public dialogRef: MatDialogRef<UserListComponent>,
@@ -53,13 +59,6 @@ export class UsersDialogComponent implements OnInit {
       jobTitle: new FormControl(this.currentUser.jobTitle),
       roles: new FormControl(this.currentUser.roles)
     })
-
-    this.stringifyData = JSON.stringify(this.userRoles);
-    console.log("With Stringify :" , this.stringifyData);
-
-    this.parsedJson = JSON.parse(this.stringifyData);
-    console.log("With Parsed JSON :" , this.parsedJson);
-
   }
 
   onSubmit(id: number, user: User): void {
@@ -67,8 +66,6 @@ export class UsersDialogComponent implements OnInit {
       .subscribe(
         (response: User) => {
           console.log(response);
-          // this.token.saveUser(response);
-          // this.token.getUser().roles;
           this.onNoClick();
           this.reloadPage();
         },

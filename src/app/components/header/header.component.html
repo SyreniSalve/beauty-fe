@@ -7,6 +7,7 @@
   <button mat-button *ngIf="showAdminAccount" routerLink="admin">Users List</button>
   <button mat-button *ngIf="showOwnerAccount" routerLink="owner">Schedule</button>
   <button mat-button *ngIf="showUserAccount" routerLink="user">User</button>
+  <button mat-button *ngIf="!isLoggedIn" routerLink="employees">All employees</button>
   <button mat-button *ngIf="!isLoggedIn" routerLink="register">Sign Up</button>
   <button mat-button *ngIf="!isLoggedIn" routerLink="login">Login</button>
   <button mat-button *ngIf="isLoggedIn" routerLink="profile"> {{ username }}</button>

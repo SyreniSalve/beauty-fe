@@ -18,8 +18,6 @@ import {UsersDialogComponent} from "../users-dialog/users-dialog.component";
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
-  @Input() viewMode: boolean = false;
-
   users!: User[];
   editUser!: User;
   currentUser! : User;
@@ -93,7 +91,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.currentUser.jobTitle = result;
+      this.currentUser = result;
     });
   }
 

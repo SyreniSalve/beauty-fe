@@ -37,6 +37,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatDialogModule} from "@angular/material/dialog";
 import { ProfileDialogComponent } from './components/profile-dialog/profile-dialog.component';
 import { UsersDialogComponent } from './components/users-dialog/users-dialog.component';
+import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 
 
 
@@ -54,7 +55,8 @@ import { UsersDialogComponent } from './components/users-dialog/users-dialog.com
     ScheduleComponent,
     UserListComponent,
     ProfileDialogComponent,
-    UsersDialogComponent
+    UsersDialogComponent,
+    EmployeesListComponent
   ],
     imports: [
         BrowserModule,
