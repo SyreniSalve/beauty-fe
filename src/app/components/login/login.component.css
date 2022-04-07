@@ -5,7 +5,7 @@
 }
 
 .formtitle {
-  width: 85%;
+  width: 70%;
   text-align: center;
   padding: 10px;
   font-size: 16px;
@@ -15,9 +15,10 @@
 
 .container {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 65%;
+  height: 100%;
 }
 
 mat-form-field {
@@ -33,4 +34,12 @@ button {
   margin-right: auto;
   width: 90%;
 }
-
+.background {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  background: url(https://st2.depositphotos.com/2251265/7139/i/450/depositphotos_71392115-stock-photo-vintage-barber-tools.jpg) no-repeat;
+  background-size: contain;
+  color: white;
+  text-align: center;
+}
