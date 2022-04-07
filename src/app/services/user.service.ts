@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { User } from "./user";
+import {ListOfUsersResponse, User} from "./user";
 
 const API_URL = 'http://localhost:8080/api/test/';
 const AUTH_URL = 'http://localhost:8080/api/auth'
@@ -47,8 +47,8 @@ export class UserService {
     return this.http.get<any>(GET_ALL_URL, { params });
   }
 
-  getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(GET_ALL_URL)
+  getAllUsers(): Observable<ListOfUsersResponse> {
+    return this.http.get<ListOfUsersResponse>(GET_ALL_URL)
   }
 
   deleteAll(): Observable<any> {

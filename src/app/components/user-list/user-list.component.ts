@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
-import {User} from 'src/app/services/user';
+import {ListOfUsersResponse, User} from 'src/app/services/user';
 import { UserService } from "../../services/user.service";
 import { MatPaginator } from "@angular/material/paginator";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -18,7 +18,7 @@ import {UsersDialogComponent} from "../users-dialog/users-dialog.component";
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
-  users!: User[];
+  users: User[] = [];
   editUser!: User;
   currentUser! : User;
 
@@ -68,16 +68,17 @@ export class UserListComponent implements OnInit, AfterViewInit {
     }
 
     this.profileForm = new FormGroup({
-      id: new FormControl(this.currentUser.id),
-      jobTitle: new FormControl(this.currentUser.jobTitle),
-      roles: new FormControl(this.currentUser.roles)
+      id: new FormControl(this.currentUser ? this.currentUser.id : ''),
+      jobTitle: new FormControl(this.currentUser ? this.currentUser.jobTitle : ''),
+      roles: new FormControl(this.currentUser ? this.currentUser.roles : '')
     })
   }
 
   getAllUsers(): void {
     this.userService.getAllUsers().subscribe(
-      (response: User[]) => {
-        this.users = response;
+      (response: ListOfUsersResponse) => {
+        console.log(2,response);
+        this.users = response.users;
       }
     );
   }
@@ -132,8 +133,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
       .subscribe(
         response => {
           const { users, totalItems } = response;
+          console.log(1,users);
           this.users = users;
-          this.count = totalItems;
+          this.count = totalItems.length;
           console.log(response);
         },
         error => {

@@ -15,7 +15,7 @@
     </button>
   </mat-card>
   <mat-card class="mat-elevation-z8"
-            *ngFor="let user of users" value="user.id"
+            *ngFor="let user of users"
             style="margin: 15px;">
     <mat-icon>
       <img [src]="user.imageUrl" [alt]="user.username" width="40" height="40"/>
@@ -39,7 +39,6 @@
                  [length]="count"
                  [pageSize]="pageSize"
                  [pageSizeOptions]="pageSizes">
-
   </mat-paginator>
 </mat-card>
 

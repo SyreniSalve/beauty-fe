@@ -16,3 +16,10 @@ export interface User {
   imageUrl?: string;
 }
 
+export interface ListOfUsersResponse{
+  currentPage: number;
+  totalItems: number;
+  totalPages: number;
+  users: User[];
+}
+

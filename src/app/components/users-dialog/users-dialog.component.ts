@@ -17,7 +17,6 @@ import {RoleEnum} from "../../models/roleEnum";
 })
 export class UsersDialogComponent implements OnInit {
 
-
   users!: User[];
   currentUser!: User;
   profileForm!: FormGroup;
@@ -55,9 +54,9 @@ export class UsersDialogComponent implements OnInit {
     this.currentUser = this.token.getUser().roles;
 
     this.profileForm = new FormGroup({
-      id: new FormControl(this.currentUser.id),
-      jobTitle: new FormControl(this.currentUser.jobTitle),
-      roles: new FormControl(this.currentUser.roles)
+      id: new FormControl(this.currentUser ? this.currentUser.id : ''),
+      jobTitle: new FormControl(this.currentUser ? this.currentUser.jobTitle : ''),
+      roles: new FormControl(this.currentUser ? this.currentUser.roles : '')
     })
   }
 
