@@ -28,13 +28,15 @@ import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, DragAndDropService,
   ResizeService } from '@syncfusion/ej2-angular-schedule';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { UserInformationDetailsComponent } from './components/user-information-details/user-information-details.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatDialogModule} from "@angular/material/dialog";
+import { ProfileDialogComponent } from './components/profile-dialog/profile-dialog.component';
+import { UsersDialogComponent } from './components/users-dialog/users-dialog.component';
 
 
 
@@ -51,33 +53,37 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     AdminComponent,
     ScheduleComponent,
     UserListComponent,
-    UserInformationDetailsComponent
+    ProfileDialogComponent,
+    UsersDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatTabsModule,
-    HttpClientModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    FormsModule,
-    ScheduleModule,
-    MatPaginatorModule,
-    MatButtonToggleModule,
-    MatChipsModule,
-    MatRadioModule,
-    MatBottomSheetModule,
-    MatDatepickerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatTabsModule,
+        HttpClientModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        FormsModule,
+        ScheduleModule,
+        MatPaginatorModule,
+        MatButtonToggleModule,
+        MatChipsModule,
+        MatRadioModule,
+        MatBottomSheetModule,
+        MatDatepickerModule,
+        MatDialogModule,
+    ],
   providers: [authInterceptorProviders, DayService, WeekService, WorkWeekService, MonthService, AgendaService,
     DragAndDropService, ResizeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProfileDialogComponent]
+
 })
 export class AppModule { }
