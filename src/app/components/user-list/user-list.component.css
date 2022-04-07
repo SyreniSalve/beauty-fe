@@ -1,0 +1,12 @@
+.mat-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.mat-card {
+  display: table-cell;
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}

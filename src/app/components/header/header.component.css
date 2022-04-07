@@ -1,3 +1,8 @@
 img {
-  width: 40px;
+  width: 45px;
+  -webkit-transform:rotate(45deg);
 }
+.flex-spacer {
+  flex-grow: 1;
+}
+
