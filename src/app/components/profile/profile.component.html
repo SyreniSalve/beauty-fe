@@ -1,33 +1,58 @@
-<div class="mat-card" *ngIf="currentUser">
-  <header class="mat-card-header">
+<mat-card class="mat-elevation-z8" id="current-user" *ngIf="currentUser">
+  <mat-card-header class="mat-card-header">
     <img [src]="currentUser.imageUrl" [alt]="currentUser.username" width="40" height="40"/>
     <br/>
-    <h3 class="mat-slider-thumb-label-text">
-      <strong>{{ currentUser.username }}</strong>: Profile
-    </h3>
-  </header>
-  <p>
-    <strong>Email:</strong>
-    {{ currentUser.email }}
-  </p>
-  <p>
-    <strong>Phone:</strong>
-    {{ currentUser.phone }}
-  </p>
-  <p>
-    <strong>Date of birth:</strong>
-    {{ currentUser.dateOfBirth }}
-  </p>
-  <p *ngIf="currentUser.jobTitle !== 'user'">
-    <strong>Job:</strong>
-    {{ currentUser.jobTitle }}
-  </p>
-  <strong>Roles:</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
-  <button mat-raised-button (click)="openDialog()">Update profile information</button>
-</div>
+  </mat-card-header>
+  <h1 class="mat-slider-thumb-label-text">
+    <strong>{{ currentUser.firstName}} {{currentUser.lastName}}</strong>
+  </h1>
+  <h3>{{ currentUser.username }}</h3>
+  <mat-list>
+    <mat-list-item>
+      <p>
+        <strong>Date of birth:  </strong>
+        {{ currentUser.dateOfBirth }}
+      </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <p>
+        <strong>Email:  </strong>
+        {{ currentUser.email }}
+      </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <p>
+        <strong>Phone:  </strong>
+        {{ currentUser.phone }}
+      </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <p *ngIf="currentUser.jobTitle !== 'user'">
+        <strong>Job: </strong>
+        {{ currentUser.jobTitle }}
+      </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <p>
+        <strong>City:  </strong>
+        {{ currentUser.city }}
+      </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <p>
+        <strong>State:  </strong>
+        {{ currentUser.state }}
+      </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <mat-list-item>
+    <button class="button-item" mat-raised-button (click)="openDialog()">Update profile information</button>
+  </mat-list-item>
+</mat-card>
 

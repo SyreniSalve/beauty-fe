@@ -35,6 +35,11 @@ button {
   width: 90%;
 }
 
+button:hover {
+  background-color: #CD5C5C;
+  color: #FFFFF0;
+}
+
 img {
   width: 40px;
 }

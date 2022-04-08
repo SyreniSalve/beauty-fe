@@ -8,7 +8,7 @@ import { AuthService } from "../../services/auth.service";
 })
 export class RegisterComponent implements OnInit {
 
-  defaultImage = 'https://cdn-icons-png.flaticon.com/512/1177/1177568.png';
+  defaultImage = 'https://cdn-icons-png.flaticon.com/512/3237/3237472.png';
 
   form: any = {
     username: null,

@@ -18,7 +18,7 @@ import {UsersDialogComponent} from "../users-dialog/users-dialog.component";
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
-  clearSearch() {this.keyword = ''; this.searchKeyword()}
+  clearSearch() {this.keyword = ''; this.refreshList()}
   users: User[] = [];
   editUser!: User;
   currentUser! : User;
@@ -28,8 +28,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   page: number = 1;
   count: number = 0;
-  pageSize: number = 6;
-  pageSizes: number[] = [5, 10, 20]
+  pageSize: number = 4;
+  pageSizes: number[] = [4, 8, 12, 16]
   userId!: number;
   message = '';
   updating: boolean = false;
@@ -78,7 +78,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   getAllUsers(): void {
     this.userService.getAllUsers().subscribe(
       (response: ListOfUsersResponse) => {
-        console.log(2,response);
+        console.log(response);
         this.users = response.users;
       }
     );
@@ -134,7 +134,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
       .subscribe(
         response => {
           const { users, totalItems } = response;
-          console.log(1,users);
+          console.log(users);
           this.users = users;
           this.count = totalItems;
           console.log(response);
