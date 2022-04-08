@@ -38,6 +38,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { ProfileDialogComponent } from './components/profile-dialog/profile-dialog.component';
 import { UsersDialogComponent } from './components/users-dialog/users-dialog.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatListModule} from "@angular/material/list";
 
 
 
@@ -58,30 +60,32 @@ import { EmployeesListComponent } from './components/employees-list/employees-li
     UsersDialogComponent,
     EmployeesListComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        MatToolbarModule,
-        MatTabsModule,
-        HttpClientModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatIconModule,
-        ReactiveFormsModule,
-        FormsModule,
-        ScheduleModule,
-        MatPaginatorModule,
-        MatButtonToggleModule,
-        MatChipsModule,
-        MatRadioModule,
-        MatBottomSheetModule,
-        MatDatepickerModule,
-        MatDialogModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatTabsModule,
+    HttpClientModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ScheduleModule,
+    MatPaginatorModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatRadioModule,
+    MatBottomSheetModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatTableModule,
+    MatListModule,
+  ],
   providers: [authInterceptorProviders, DayService, WeekService, WorkWeekService, MonthService, AgendaService,
     DragAndDropService, ResizeService],
   bootstrap: [AppComponent],

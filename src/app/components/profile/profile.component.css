@@ -3,5 +3,49 @@
 }
 
 img {
-  width: 40px;
+  width: 8em;
+  height: 8em;
+  border: 10px solid #FFFFF0;
+  border-radius: 50%;
+  /*margin-top: -4.5em;*/
+  /*width: 40px;*/
+  position: revert;
+  margin-left: 76px;
+  margin-top: -4.5em;
+  background-color: #FFFFF0;
+/*  #fff */
 }
+
+#current-user {
+  /*margin-left: 28%;*/
+  display: grid;
+  position: center;
+  text-align: center;
+  right: 0;
+  width: 350px;
+  bottom: -2em;
+  border-radius: 1em;
+  background-color: #FFFFF0;
+  /*border: 10px solid black;  #F0F8FF*/
+}
+
+.button-item {
+  margin-top: 35px;
+  background-color: #3f51b5;
+  color: #F0F8FF;
+}
+
+.button-item:hover {
+  background-color: #CD5C5C;
+  color: #FFFFF0;
+/*  #1E90FF;*/
+}
+
+p {
+  margin-top: 35px;
+}
+
+strong {
+  margin-right: 3px;
+}
+

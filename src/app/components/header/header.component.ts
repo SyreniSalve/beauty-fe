@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   showUserAccount: boolean = false;
   showOwnerAccount: boolean = false;
   showAdminAccount: boolean = false;
-  username?: string;
+  firstName?: string;
+  lastName?: string;
   eventBusSub?: Subscription;
 
   constructor(private tokenStorageService: TokenStorageService, private eventBusService: EventBusService) { }
@@ -29,7 +30,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.showUserAccount = this.roles.includes("ROLE_USER")
       this.showAdminAccount = this.roles.includes('ROLE_ADMIN')
       this.showOwnerAccount = this.roles.includes('ROLE_OWNER');
-      this.username = user.username;
+      this.firstName = user.firstName;
+      this.lastName = user.lastName;
     }
     this.eventBusSub = this.eventBusService.on('logout', () => {
       this.logout();
