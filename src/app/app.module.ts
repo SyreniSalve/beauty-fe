@@ -40,6 +40,7 @@ import { UsersDialogComponent } from './components/users-dialog/users-dialog.com
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatListModule} from "@angular/material/list";
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
@@ -85,6 +86,7 @@ import {MatListModule} from "@angular/material/list";
     MatDialogModule,
     MatTableModule,
     MatListModule,
+    MatGridListModule,
   ],
   providers: [authInterceptorProviders, DayService, WeekService, WorkWeekService, MonthService, AgendaService,
     DragAndDropService, ResizeService],
