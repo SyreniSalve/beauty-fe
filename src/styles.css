@@ -11,7 +11,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 .mat-typography {
   /* The image used */
   background-image: url("https://static.vecteezy.com/system/resources/previews/003/492/706/large_2x/men-s-haircut-tools-on-a-wooden-dark-background-free-photo.JPG");
@@ -24,3 +23,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-repeat: no-repeat;
   background-size: cover;
 }
+
