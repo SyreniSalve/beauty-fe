@@ -23,7 +23,7 @@
         <mat-card-subtitle>{{ user.jobTitle }}</mat-card-subtitle>
         <mat-card-subtitle>{{ user.city }}</mat-card-subtitle>
       </div>
-    <button class="mat-elevation-z8" mat-button style="background: red; color: white; margin: 2px;" (click)="deleteUser(user.id)">
+    <button class="mat-elevation-z8" mat-button style="background: red; color: white;" (click)="deleteUser(user.id)">
       <mat-icon>delete</mat-icon>Delete</button>
     <button class="mat-elevation-z8" mat-button style="background: #FF8C00; color: white" (click)="openDialog(user.id, user)">
       <mat-icon>edit</mat-icon>Update</button>
