@@ -1,16 +1,16 @@
-<div mat-dialog-content>
+<div mat-dialog-content class="dialog">
   <h1 mat-dialog-title>Update Profile Information</h1>
   <div>
-    <p>Job</p>
+    <p style="font-weight: bold; font-size: 18px">Job</p>
     <mat-form-field appearance="fill">
       <mat-label>Job</mat-label>
       <input matInput [(ngModel)]="data.jobTitle">
     </mat-form-field>
   </div>
   <div mat-dialog-content class="content">
-    <p>Roles</p>
+    <p style="font-weight: bold; font-size: 18px">Roles</p>
     <mat-form-field appearance="fill">
-      <mat-label>Roles</mat-label>
+      <mat-label>Role</mat-label>
       <mat-select [(value)]="data.roles">
         <mat-option [value]="option1">admin</mat-option>
         <mat-option [value]="option2">owner</mat-option>
@@ -18,8 +18,10 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button (click)="onSubmit(data.id, data)" cdkFocusInitial>Update</button>
+  <div mat-dialog-actions class="buttons">
+    <button class="mat-elevation-z8" mat-button style="background: red; color: white;" (click)="onNoClick()">
+      <mat-icon>cancel</mat-icon>Cancel</button>
+    <button class="mat-elevation-z8" mat-button style="background: #FF8C00; color: white" (click)="onSubmit(data.id, data)">
+      <mat-icon>edit</mat-icon>Update</button>
   </div>
 </div>

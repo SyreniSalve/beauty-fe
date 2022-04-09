@@ -1,4 +1,4 @@
-<div mat-dialog-content>
+<div mat-dialog-content class="dialog">
   <h1 mat-dialog-title>Update Profile Information</h1>
 
   <div mat-dialog-content>
@@ -64,9 +64,11 @@
       <input matInput [(ngModel)]="data.imageUrl">
     </mat-form-field>
   </div>
-  <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button (click)="onSubmit(data.id, data)" cdkFocusInitial>Update</button>
+  <div mat-dialog-actions class="buttons">
+    <button class="mat-elevation-z8" mat-button style="background: red; color: white;" (click)="onNoClick()">
+      <mat-icon>cancel</mat-icon>Cancel</button>
+    <button class="mat-elevation-z8" mat-button style="background: #FF8C00; color: white" (click)="onSubmit(data.id, data)">
+      <mat-icon>edit</mat-icon>Update</button>
   </div>
 </div>
 
