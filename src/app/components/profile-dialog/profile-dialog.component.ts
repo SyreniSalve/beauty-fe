@@ -48,6 +48,7 @@ export class ProfileDialogComponent implements OnInit {
       .subscribe(
         (response: User) => {
           console.log(response);
+          this.dialogRef.close(response);
         },
         (error: HttpErrorResponse) => {
           alert(error.message)
@@ -57,6 +58,10 @@ export class ProfileDialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }

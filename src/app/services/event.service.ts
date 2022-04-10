@@ -10,12 +10,17 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
+  getAllUserEvents(userId: number): Observable<Event[]> {
+    return this.http.get<Event[]>(`${BASIC_URL}/user-events/${userId}`);
+  }
+
   createEvent(event: Event): Observable<Event>{
     return this.http.post<Event>(`${BASIC_URL}/create`, event);
   }
 
-  updateEvent(event: Event): Observable<Event> {
-    return this.http.put<Event>(`${BASIC_URL}/update`, event)
+
+  updateEvent(id: number, event: Event): Observable<Event> {
+    return this.http.put<Event>(`${BASIC_URL}/update/${id}`, event)
   }
 
   deleteEvent(id: number): void {

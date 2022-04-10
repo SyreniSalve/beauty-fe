@@ -1,1 +1,6 @@
-<app-schedule></app-schedule>
+<ejs-schedule *ngIf="currentUser"
+  #scheduleObj width='100%' height='600px'
+              style="margin-top: 70px;"
+              [eventSettings]="eventSettings"
+
+></ejs-schedule>
