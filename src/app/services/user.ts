@@ -13,6 +13,7 @@ export interface User {
   city?: string;
   state?: string;
   roles?: Role[];
+  events?: Event[];
   imageUrl?: string;
 }
 

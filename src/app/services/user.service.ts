@@ -31,6 +31,10 @@ export class UserService {
     return this.http.get(API_URL + 'user', { responseType: 'text'});
   }
 
+  addEventToUser(userId: number, event: Event): Observable<Event> {
+    return this.http.post<Event>(`${AUTH_URL}/add-event/user/${userId}`, event);
+  }
+
   update(id: number, data: User): Observable<User> {
     return this.http.put<User>(`${UPDATE_USER}/${id}`, data);
   }

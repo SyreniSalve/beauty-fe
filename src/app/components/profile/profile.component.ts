@@ -22,10 +22,6 @@ export class ProfileComponent implements OnInit {
   }
 
   openDialog(): void {
-    //   const dialogConfig = new MatDialogConfig();
-    //
-    //   dialogConfig.disableClose = true;
-    //   dialogConfig.autoFocus = true;
     const dialogRef = this.dialog.open(ProfileDialogComponent, {
       data: {id: this.currentUser.id, firstName: this.currentUser.firstName, lastName: this.currentUser.lastName,
         jobTitle: this.currentUser.jobTitle, phone: this.currentUser.phone, dateOfBirth: this.currentUser.dateOfBirth,
@@ -33,10 +29,10 @@ export class ProfileComponent implements OnInit {
         imageUrl: this.currentUser.imageUrl},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe((result: User) =>  {
+      console.log('The dialog was closed', result);
       this.currentUser = result;
-      this.reloadPage();
+      this.token.saveUser(result);
     });
   }
 

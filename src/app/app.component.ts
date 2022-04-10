@@ -9,6 +9,8 @@ export class AppComponent implements OnInit {
   title!: "beutyy";
 
 
+  title!: 'Beauty';
+
   constructor() {
   }
 
