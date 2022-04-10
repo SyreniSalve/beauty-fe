@@ -66,7 +66,6 @@ export class UsersDialogComponent implements OnInit {
         (response: User) => {
           console.log(response);
           this.onNoClick();
-          this.reloadPage();
         },
         (error: HttpErrorResponse) => {
           alert(error.message)
