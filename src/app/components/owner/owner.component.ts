@@ -1,21 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from "../../services/user.service";
-import {User} from "../../services/user";
-import {HttpErrorResponse} from "@angular/common/http";
-import {
-  ScheduleComponent,
-  EventSettingsModel,
-  DayService,
-  WeekService,
-  WorkWeekService,
-  MonthService,
-  View,
-  CellClickEventArgs
-} from '@syncfusion/ej2-angular-schedule';
-import {EventService} from "../../services/event.service";
-import { Ajax } from "@syncfusion/ej2-base";
-import {TokenStorageService} from "../../services/token-storage.service";
-import { DataManager, UrlAdaptor, ODataV4Adaptor } from '@syncfusion/ej2-data';
+import { User } from "../../services/user";
+import { Event } from '../../models/Event';
+import { HttpErrorResponse } from "@angular/common/http";
+import { EventSettingsModel, ScheduleComponent, View } from '@syncfusion/ej2-angular-schedule';
+import { EventService } from "../../services/event.service";
+import { TokenStorageService } from "../../services/token-storage.service";
 
 @Component({
   selector: 'app-owner',
@@ -32,7 +22,7 @@ export class OwnerComponent implements OnInit {
   public scheduleObj!: ScheduleComponent;
   public scheduleViews: View[] = ['Day', 'Week', 'WorkWeek', 'Month'];
   public eventSettings: EventSettingsModel = {
-    dataSource: this.allUserEvents,
+    dataSource: [],
     fields: {
       id: 'id',
       subject: { name: 'title' },
@@ -50,20 +40,34 @@ export class OwnerComponent implements OnInit {
 
   constructor(private userService: UserService,
               private eventService: EventService,
-              private tokenStorageService: TokenStorageService) { }
+              private tokenStorageService: TokenStorageService) {
+  }
 
-  public getAllUserEvents(userId: number): void{
+  public getAllUserEvents(userId: number): void {
     this.currentUser.id = userId;
     this.eventService.getAllUserEvents(userId).subscribe(
       (response: Event[]) => {
-        console.log(response)
         this.allUserEvents = response;
 
+        // @ts-ignore
+        this.eventSettings.dataSource.length = 0;
+        // @ts-ignore
+        this.eventSettings.dataSource.push(...response);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     );
+  }
+
+  onClose = ({ data }: { data: any }) => {
+    const event: Event = {
+      title: data.title,
+      startTime: data.startTime.toLocaleString("lt-LT"),
+      endTime: data.endTime.toLocaleString("lt-LT")
+    };
+
+    this.eventService.createEvent(event).subscribe(console.log);
   }
 
   // public getCellDetails(): void{

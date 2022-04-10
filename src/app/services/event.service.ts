@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import { Event } from '../models/Event';
+import { TokenStorageService } from './token-storage.service';
 
 const BASIC_URL = 'http://localhost:8080/api/auth/events';
 @Injectable({
@@ -8,14 +10,14 @@ const BASIC_URL = 'http://localhost:8080/api/auth/events';
 })
 export class EventService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
 
   getAllUserEvents(userId: number): Observable<Event[]> {
     return this.http.get<Event[]>(`${BASIC_URL}/user-events/${userId}`);
   }
 
   createEvent(event: Event): Observable<Event>{
-    return this.http.post<Event>(`${BASIC_URL}/create`, event);
+    return this.http.post<Event>(`${BASIC_URL}/create`, event, this.getRequestOptions());
   }
 
 
@@ -33,5 +35,18 @@ export class EventService {
 
   setColor(event: Event): Observable<Event> {
     return this.http.post<Event>(`${BASIC_URL}/set-color`, event);
+  }
+
+  private getRequestOptions() {
+    const token = this.tokenStorageService.getToken();
+
+    const headers: {[key: string]: string} = {
+      'Content-Type': 'application/json',
+      Authorization: token ? `Bearer ${token}` : ''
+    };
+
+    return {
+      headers
+    };
   }
 }
