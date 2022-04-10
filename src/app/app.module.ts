@@ -25,7 +25,6 @@ import { MatIconModule } from "@angular/material/icon";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ScheduleComponent } from './components/Schedule/schedule.component';
 import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
-import { ButtonModule } from "@syncfusion/ej2-angular-buttons";
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, DragAndDropService,
   ResizeService } from '@syncfusion/ej2-angular-schedule';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -63,7 +62,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
   ],
   imports: [
     BrowserModule,
-    ButtonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,

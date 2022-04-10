@@ -9,8 +9,8 @@
   <button mat-button *ngIf="showUserAccount" routerLink="user">Your visits</button>
   <button mat-button *ngIf="!isLoggedIn" routerLink="employees">All employees</button>
   <div class="flex-spacer"></div>
-  <button mat-button *ngIf="!isLoggedIn" routerLink="register">Sign Up</button>
-  <button mat-button *ngIf="!isLoggedIn" routerLink="login">Login</button>
+  <button mat-button *ngIf="!isLoggedIn" routerLink="profile">Sign Up</button>
+  <button mat-button *ngIf="!isLoggedIn" routerLink="profile">Login</button>
   <button mat-button *ngIf="isLoggedIn" routerLink="profile"> {{ firstName }} {{ lastName }}</button>
   <button mat-button *ngIf="isLoggedIn" (click)="logout()" routerLink="home">LogOut</button>
 </mat-toolbar>

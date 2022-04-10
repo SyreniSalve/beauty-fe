@@ -28,8 +28,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   page: number = 1;
   count: number = 0;
-  pageSize: number = 5;
-  pageSizes: number[] = [5, 10, 15, 20]
+  pageSize: number = 4;
+  pageSizes: number[] = [4, 8, 12, 16]
   userId!: number;
   message = '';
   updating: boolean = false;

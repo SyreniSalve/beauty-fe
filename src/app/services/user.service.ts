@@ -3,10 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import {ListOfUsersResponse, User} from "./user";
 
-const API_URL = 'http://localhost:8080/api/test/';
-const AUTH_URL = 'http://localhost:8080/api/auth'
-const GET_ALL_URL = 'http://localhost:8080/api/auth/users'
-const UPDATE_USER = 'http://localhost:8080/api/auth/update_user'
+const API_URL = '/api/test/';
+const AUTH_URL = '/api/auth'
+const GET_ALL_URL = '/api/auth/users'
+const UPDATE_USER = '/api/auth/update_user'
 
 @Injectable({
   providedIn: 'root'
