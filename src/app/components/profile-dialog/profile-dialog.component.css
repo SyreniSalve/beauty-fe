@@ -1,8 +1,28 @@
-.dialog {
+.grid-container {
   display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 50px;
+  row-gap: 20px;
+  height: 400px;
   text-align: center;
-  padding: 24px 24px;
 }
+
+.grid-item-9 {
+  grid-column: 2 / 4;
+}
+
+.grid-item-9 mat-form-field{
+  width: 500px;
+}
+
+.mat-form-field input {
+  text-align: center;
+}
+
+.mat-form-field {
+  text-align: center;
+}
+
 .mat-icon {
   font-size: 30px;
   margin-right: 15px;
