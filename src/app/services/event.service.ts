@@ -22,19 +22,19 @@ export class EventService {
 
 
   updateEvent(id: number, event: Event): Observable<Event> {
-    return this.http.put<Event>(`${BASIC_URL}/update/${id}`, event)
+    return this.http.put<Event>(`${BASIC_URL}/update/${id}`, event, this.getRequestOptions())
   }
 
   deleteEvent(id: number): void {
-    this.http.delete(`${BASIC_URL}/delete/${id}`);
+    this.http.delete(`${BASIC_URL}/delete/${id}`, this.getRequestOptions());
   }
 
   moveEvent(event: Event): Observable<Event> {
-    return this.http.post<Event>(`${BASIC_URL}/move`, event);
+    return this.http.post<Event>(`${BASIC_URL}/move`, event, this.getRequestOptions());
   }
 
   setColor(event: Event): Observable<Event> {
-    return this.http.post<Event>(`${BASIC_URL}/set-color`, event);
+    return this.http.post<Event>(`${BASIC_URL}/set-color`, event, this.getRequestOptions());
   }
 
   private getRequestOptions() {
