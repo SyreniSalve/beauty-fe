@@ -1,7 +1,6 @@
-<div mat-dialog-content class="dialog">
-  <h1 mat-dialog-title>Update Profile Information</h1>
-  <div class="grid-container">
-    <div class="grid-item-1">
+<h1 mat-dialog-title>Update Profile Information</h1>
+  <div class="container">
+    <div class="item-1">
       <div mat-dialog-content class="content">
       <p>First Name</p>
       <mat-form-field appearance="fill">
@@ -10,7 +9,7 @@
       </mat-form-field>
       </div>
     </div>
-    <div class="grid-item-2">
+    <div class="item-2">
       <div mat-dialog-content class="content">
       <p>Last Name</p>
       <mat-form-field appearance="fill">
@@ -19,7 +18,7 @@
       </mat-form-field>
      </div>
     </div>
-    <div class="grid-item-3">
+    <div class="item-3">
       <div mat-dialog-content class="content">
         <p>Job</p>
         <mat-form-field appearance="fill">
@@ -28,25 +27,7 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="grid-item-4">
-      <div mat-dialog-content class="content">
-        <p>Phone Number</p>
-        <mat-form-field appearance="fill">
-          <mat-label>Phone Number</mat-label>
-          <input matInput [(ngModel)]="data.phone">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="grid-item-5">
-      <div mat-dialog-content class="content">
-        <p>Date Of Birth</p>
-        <mat-form-field appearance="fill">
-          <mat-label>MM-dd-yyyy</mat-label>
-          <input matInput [(ngModel)]="data.dateOfBirth">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="grid-item-6">
+    <div class="item-4">
       <div mat-dialog-content class="content">
         <p>Email</p>
         <mat-form-field appearance="fill">
@@ -55,7 +36,25 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="grid-item-7">
+    <div class="item-5">
+      <div mat-dialog-content class="content">
+        <p>Date Of Birth</p>
+        <mat-form-field appearance="fill">
+          <mat-label>MM-dd-yyyy</mat-label>
+          <input matInput [(ngModel)]="data.dateOfBirth">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="item-6">
+      <div mat-dialog-content class="content">
+        <p>Phone Number</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput [(ngModel)]="data.phone">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="item-7">
       <div mat-dialog-content class="content">
         <p>City</p>
         <mat-form-field appearance="fill">
@@ -64,7 +63,7 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="grid-item-8">
+    <div class="item-8">
       <div mat-dialog-content class="content">
         <p>State</p>
         <mat-form-field appearance="fill">
@@ -73,22 +72,21 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="grid-item-9">
-      <div mat-dialog-content class="content">
-        <p>Image Url</p>
-        <mat-form-field appearance="fill">
-          <mat-label>image Url</mat-label>
-          <input matInput [(ngModel)]="data.imageUrl">
-        </mat-form-field>
-      </div>
-    </div>
   </div>
-  <div mat-dialog-actions class="buttons">
+<div class="item-9">
+  <div mat-dialog-content class="content">
+    <p style="text-align: center">Image Url</p>
+    <mat-form-field appearance="fill">
+      <mat-label>image Url</mat-label>
+      <input matInput [(ngModel)]="data.imageUrl">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions class="buttons">
     <button class="mat-elevation-z8" mat-button style="background: red; color: white;" (click)="onNoClick()">
       <mat-icon>cancel</mat-icon>Cancel</button>
     <button class="mat-elevation-z8" mat-button style="background: #FF8C00; color: white" (click)="onSubmit(data.id, data)">
       <mat-icon>edit</mat-icon>Update</button>
-  </div>
 </div>
 
 

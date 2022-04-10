@@ -24,3 +24,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-size: cover;
 }
 
+.mat-dialog-container {
+  padding: 0;
+  border: #3f51b5 15px solid;
+  /*border-radius: 15px!important;*/
+}
+
