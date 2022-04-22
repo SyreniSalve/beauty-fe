@@ -2,7 +2,7 @@
   padding: 30px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 img {
@@ -10,17 +10,13 @@ img {
   height: 8em;
   border: 10px solid #FFFFF0;
   border-radius: 50%;
-  /*margin-top: -4.5em;*/
-  /*width: 40px;*/
   position: revert;
   margin-left: 76px;
   margin-top: -4.5em;
   background-color: #FFFFF0;
-/*  #fff */
 }
 
 #current-user {
-  /*margin-left: 28%;*/
   display: grid;
   position: center;
   text-align: center;
@@ -29,7 +25,6 @@ img {
   bottom: -2em;
   border-radius: 1em;
   background-color: #FFFFF0;
-  /*border: 10px solid black;  #F0F8FF*/
 }
 
 .button-item {
@@ -41,7 +36,6 @@ img {
 .button-item:hover {
   background-color: #FFCC01;
   color: black;
-/*  #1E90FF;*/
 }
 
 p {

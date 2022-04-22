@@ -1,3 +1,22 @@
-<div>
-  <img src="assets/images/cover.jpg" alt="" />
-</div>
+<mat-card class="container">
+  <mat-card class="title">
+    <mat-card-title>Welcome to our application</mat-card-title>
+  </mat-card>
+  <mat-grid-list class="grid-list" cols="4" rowHeight="100px">
+    <mat-grid-tile [colspan]="1" [rowspan]="2" [style.background]="color3">
+      <img src="https://image.shutterstock.com/image-photo/beautiful-hairstyle-young-woman-after-260nw-1715459824.jpg"/>
+    </mat-grid-tile>
+    <mat-grid-tile class="tile-four" [colspan]="3" [rowspan]="2" [style.background]="color1">
+      <div class="welcome-word">
+        <mat-card-subtitle class="subtitle">Find your hair stylist</mat-card-subtitle>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="4" [style.background]="color1">
+      <img class="image-one" src="https://www.thefivesalon.com/assets/images/t5s-slider-1-1200x800.jpg" alt="" />
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="4" [style.background]="color1">
+      <img src="https://www.justflauntsalon.com/resources/assets/images/Hair-Services_Men-2.png"/>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+

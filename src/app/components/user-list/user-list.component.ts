@@ -6,10 +6,11 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { FormControl, FormGroup } from "@angular/forms";
 import {tap} from "rxjs";
 import {UpdateService} from "../../services/update.service";
-import {RoleEnum} from "../../models/roleEnum";
 import {TokenStorageService} from "../../services/token-storage.service";
 import { MatDialog } from "@angular/material/dialog";
 import {UsersDialogComponent} from "../users-dialog/users-dialog.component";
+import {UserDeleteDialogComponent} from "../user-delete-dialog/user-delete-dialog.component";
+import {UserRoleDeleteDialogComponent} from "../user-role-delete-dialog/user-role-delete-dialog.component";
 
 @Component({
   selector: 'app-user-list',
@@ -18,7 +19,7 @@ import {UsersDialogComponent} from "../users-dialog/users-dialog.component";
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
-  clearSearch() {this.keyword = ''; this.refreshList()}
+
   users: User[] = [];
   editUser!: User;
   currentUser! : User;
@@ -28,12 +29,11 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   page: number = 1;
   count: number = 0;
-  pageSize: number = 5;
-  pageSizes: number[] = [5, 10, 15, 20]
+  pageSize: number = 4;
+  pageSizes: number[] = [4, 8, 12, 16]
   userId!: number;
   message = '';
   updating: boolean = false;
-  isSuccessful: boolean = false;
   isUpdateFailed: boolean = false;
   submitted: boolean = false;
 
@@ -43,13 +43,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   profileForm!: FormGroup;
 
-
   form: any = {
     jobTitle: null,
     phone: null
   }
-
-  userRoles!: RoleEnum[];
 
   constructor(private userService: UserService,
               private route: ActivatedRoute,
@@ -72,7 +69,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
       id: new FormControl(this.currentUser ? this.currentUser.id : ''),
       jobTitle: new FormControl(this.currentUser ? this.currentUser.jobTitle : ''),
       roles: new FormControl(this.currentUser ? this.currentUser.roles : '')
-    })
+    });
+
   }
 
   getAllUsers(): void {
@@ -92,6 +90,36 @@ export class UserListComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.retrieveUsers();
+      console.log('The dialog was closed');
+      this.currentUser = result;
+    });
+  }
+
+  openDeleteDialog(id: number, user: User): void {
+    user.id = id;
+    this.setActiveUser(user, this.currentIndex);
+    const dialogRef = this.dialog.open(UserDeleteDialogComponent, {
+      data: {id, firstName: this.currentUser.firstName, lastName: this.currentUser.lastName}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.retrieveUsers();
+      console.log('The dialog was closed');
+      this.currentUser = result;
+    });
+  }
+
+  openRoleDeleteDialog(roleId: number, userId: number, user: User): void {
+    user.id = userId;
+    this.setActiveUser(user, this.currentIndex);
+
+    const dialogRef = this.dialog.open(UserRoleDeleteDialogComponent, {
+      data: {userId, roleId}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.retrieveUsers();
       console.log('The dialog was closed');
       this.currentUser = result;
     });
@@ -115,17 +143,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
     return params;
   }
 
-  findUserById(id: number) {
-    this.userService.get(id)
-      .subscribe( {
-          next: (data) => {
-            this.currentUser = data;
-            console.log(data);
-          },
-        error: (e) => console.error(e)
-      });
-  }
-
   retrieveUsers(): void {
     // @ts-ignore
     const params = this.getRequestParams(this.keyword, this.paginator?.pageIndex, this.paginator?.pageSize);
@@ -147,17 +164,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   onUpdate(){
     this.updating = true;
-  }
-
-
-  deleteUser(id: number): void {
-  this.userService.delete(id)
-    .subscribe({
-      next: (res) => {
-        this.retrieveUsers();
-      },
-      error: (e) => console.error(e)
-    });
   }
 
   ngAfterViewInit() {
@@ -196,6 +202,11 @@ export class UserListComponent implements OnInit, AfterViewInit {
   searchKeyword(): void {
     this.page = 1;
     this.retrieveUsers();
+  }
+
+  clearSearch() {
+    this.keyword = '';
+    this.refreshList()
   }
 
   reloadPage(): void {

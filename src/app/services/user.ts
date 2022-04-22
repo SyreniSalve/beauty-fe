@@ -17,10 +17,17 @@ export interface User {
   imageUrl?: string;
 }
 
-export interface ListOfUsersResponse{
+export interface ListOfUsersResponse {
   currentPage: number;
   totalItems: number;
   totalPages: number;
   users: User[];
+}
+
+export interface ListOfOwnersResponse {
+  currentPage: number;
+  totalItems: number;
+  totalPages: number;
+  owners: User[];
 }
 

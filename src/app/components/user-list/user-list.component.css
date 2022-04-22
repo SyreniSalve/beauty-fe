@@ -1,3 +1,4 @@
+
 .mat-card-avatar {
   width: 175px;
   height: 175px;
@@ -72,5 +73,24 @@
 mat-paginator {
   background-color: #FFCC01;
   border-radius: 10px;
+}
+
+.class-delete-role {
+  display: flex;
+  justify-content: center;
+}
+
+.role-name {
+  margin-top: 8px;
+}
+
+.delete-role-btn {
+  border: white;
+  background: white;
+}
+
+.delete-role-btn:hover {
+  color: red;
+  cursor: pointer;
 }
 

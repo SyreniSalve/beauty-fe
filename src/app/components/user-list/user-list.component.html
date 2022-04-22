@@ -16,14 +16,25 @@
 <mat-card class="user-card">
   <mat-card id="user-card-attribute" class="mat-elevation-z8" *ngFor="let user of users">
     <div class="card-content">
-      <img [src]="user.imageUrl" [alt]="user.username" mat-card-avatar>
+      <img [src]="user.imageUrl" [alt]="user.username" class="mat-card-avatar">
       <div>
         <mat-card-title>{{ user.firstName }} {{user.lastName }}</mat-card-title>
         <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
         <mat-card-subtitle>{{ user.jobTitle }}</mat-card-subtitle>
         <mat-card-subtitle>{{ user.city }}</mat-card-subtitle>
+        <p>Roles: </p>
+        <mat-card-subtitle class="class-delete-role" *ngFor="let role of user.roles">
+          <div class="role-name">
+            {{ role.role }}
+          </div>
+          <div>
+            <button class="delete-role-btn" (click)="openRoleDeleteDialog(role.id, user.id, user)">
+              <span id="delete-role-icon" class="material-icons">clear</span>
+            </button>
+          </div>
+        </mat-card-subtitle>
       </div>
-    <button class="mat-elevation-z8" mat-button style="background: red; color: white;" (click)="deleteUser(user.id)">
+    <button class="mat-elevation-z8" mat-button style="background: red; color: white;" (click)="openDeleteDialog(user.id, user)">
       <mat-icon>delete</mat-icon>Delete</button>
     <button class="mat-elevation-z8" mat-button style="background: #FF8C00; color: white" (click)="openDialog(user.id, user)">
       <mat-icon>edit</mat-icon>Update</button>

@@ -42,6 +42,8 @@ import { EmployeesListComponent } from './components/employees-list/employees-li
 import {MatTableModule} from "@angular/material/table";
 import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from '@angular/material/grid-list';
+import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-delete-dialog.component';
+import { UserRoleDeleteDialogComponent } from './components/user-role-delete-dialog/user-role-delete-dialog.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UserListComponent,
     ProfileDialogComponent,
     UsersDialogComponent,
-    EmployeesListComponent
+    EmployeesListComponent,
+    UserDeleteDialogComponent,
+    UserRoleDeleteDialogComponent
   ],
   imports: [
     BrowserModule,

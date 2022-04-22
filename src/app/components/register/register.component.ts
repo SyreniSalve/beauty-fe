@@ -29,6 +29,8 @@ export class RegisterComponent implements OnInit {
   errorMessage: string = '';
   hide: boolean = false;
 
+  showDetails!: boolean;
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -50,4 +52,9 @@ export class RegisterComponent implements OnInit {
       }
     )
   }
+
+  onStrengthChanged(strength: number) {
+    console.log('password strength = ', strength);
+  }
+
 }
