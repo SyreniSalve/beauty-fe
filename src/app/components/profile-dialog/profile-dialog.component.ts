@@ -57,7 +57,7 @@ export class ProfileDialogComponent implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.currentUser);
   }
 
   reloadPage(): void {

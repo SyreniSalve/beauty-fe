@@ -23,7 +23,6 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatIconModule } from "@angular/material/icon";
 import { ReactiveFormsModule } from "@angular/forms";
-import { ScheduleComponent } from './components/Schedule/schedule.component';
 import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
 import { ButtonModule } from "@syncfusion/ej2-angular-buttons";
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, DragAndDropService,
@@ -44,6 +43,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from '@angular/material/grid-list';
 import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-delete-dialog.component';
 import { UserRoleDeleteDialogComponent } from './components/user-role-delete-dialog/user-role-delete-dialog.component';
+import { RegistrationGreetingComponent } from './components/registration-greeting/registration-greeting.component';
 
 
 @NgModule({
@@ -57,13 +57,13 @@ import { UserRoleDeleteDialogComponent } from './components/user-role-delete-dia
     ProfileComponent,
     UserComponent,
     AdminComponent,
-    ScheduleComponent,
     UserListComponent,
     ProfileDialogComponent,
     UsersDialogComponent,
     EmployeesListComponent,
     UserDeleteDialogComponent,
-    UserRoleDeleteDialogComponent
+    UserRoleDeleteDialogComponent,
+    RegistrationGreetingComponent
   ],
   imports: [
     BrowserModule,
