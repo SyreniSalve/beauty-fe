@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import {ListOfUsersResponse, User} from "./user";
+import {ListOfOwnersResponse, ListOfUsersResponse, User} from "./user";
 
 const API_URL = '/api/test/';
 const AUTH_URL = '/api/auth'
@@ -19,8 +19,12 @@ export class UserService {
     return this.http.get(API_URL + 'all', { responseType: 'text'});
   }
 
-  getAllOwners(): Observable<User[]> {
-    return this.http.get<User[]>(API_URL + 'all/owners');
+  getAllOwners(): Observable<any> {
+    return this.http.get<any>(API_URL + 'all/owners');
+  }
+
+  getOwners(params: any): Observable<ListOfOwnersResponse> {
+    return this.http.get<ListOfOwnersResponse>(API_URL + 'all/owners', { params });
   }
 
   getOwnerContent(): Observable<any> {
@@ -41,6 +45,10 @@ export class UserService {
 
   delete(id: number): Observable<Object> {
     return this.http.delete(`${AUTH_URL}/delete_user/${id}`);
+  }
+
+  deleteRole(roleId: number, userId: number): Observable<User> {
+    return this.http.delete<User>(`${AUTH_URL}/delete_role/${roleId}/${userId}`);
   }
 
   get(id: number): Observable<User> {

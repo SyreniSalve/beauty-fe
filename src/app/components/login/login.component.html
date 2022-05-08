@@ -1,5 +1,4 @@
-<mat-card class="container" style="margin-bottom: 25px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);">
-  <form style="box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);"
+  <form
     class="mat-card"
     *ngIf="!isLoggedIn"
     name="form"
@@ -10,7 +9,7 @@
     <mat-form-field
       appearance="fill">
       <mat-label>Username</mat-label>
-      <input
+      <input class="username"
         placeholder="Username"
         name="username"
         [(ngModel)]="form.username"
@@ -45,8 +44,7 @@
       Login failed!<br/>{{errorMessage}}
     </div>
   </form>
-  <div class="login-successful" *ngIf="isLoggedIn">Your login is successful!</div>
-</mat-card>
+
 
 
 

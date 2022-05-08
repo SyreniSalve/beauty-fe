@@ -8,6 +8,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  color1='#FFCC01';
+  color3='lightpink'
+
   constructor() { }
 
   ngOnInit(): void {

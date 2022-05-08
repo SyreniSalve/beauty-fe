@@ -8,6 +8,7 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {UserComponent} from "./components/user/user.component";
 import {AdminComponent} from "./components/admin/admin.component";
 import {EmployeesListComponent} from "./components/employees-list/employees-list.component";
+import {RegistrationGreetingComponent} from "./components/registration-greeting/registration-greeting.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'owner', component: OwnerComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'employees', component: EmployeesListComponent},
+  { path: 'greeting', component: RegistrationGreetingComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
