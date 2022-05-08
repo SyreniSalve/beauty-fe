@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Observable } from "rxjs";
 import { User } from "./user";
 
-const UPDATE_USER = '/api/auth/update_user';
-const ADMIN_UPDATE = '/api/auth/admin_update';
+const UPDATE_USER = 'http://localhost:8080/api/auth/update_user';
+const ADMIN_UPDATE = 'http://localhost:8080/api/auth/admin_update';
 const httpOptions = {
   headers: new HttpHeaders( {'Content-Type': 'application/json'})
 }

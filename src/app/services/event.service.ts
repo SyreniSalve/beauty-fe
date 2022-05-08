@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import { Event } from '../models/Event';
 import { TokenStorageService } from './token-storage.service';
 
-const BASIC_URL = '/api/auth/events';
+const BASIC_URL = 'http://localhost:8080/api/auth/events';
 @Injectable({
   providedIn: 'root'
 })
